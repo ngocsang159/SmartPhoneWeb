@@ -1,0 +1,373 @@
+﻿@model List<LxShop.Models.EF.Product>
+@using LxShop.Models.EF
+@{
+    ViewBag.Title = "GetProductByBrand";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var getProductByBrand_id = ViewBag.ProductModel as List<ProductModel>;
+}
+
+<!-- Header Area End Here -->
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/Home/Index">Home</a></li>
+                @foreach (var item in getProductByBrand_id)
+                {
+                    <li class="active"><a href=""> @item.Product_Category_Type.Product_Category_TypeName</a></li>
+                    <li class="active"><a href=""> @item.Brand.Brand_name</a></li>
+                    break;
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- Begin Li's Content Wraper Area -->
+<div class="content-wraper pt-60 pb-60 pt-sm-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 order-1 order-lg-2">
+                <!-- Begin Li's Banner Area -->
+                <div class="single-banner shop-page-banner">
+                    <a href="#">
+                        <img src="~/Content/CssWeb/images/bg-banner/2.jpg" />
+                        
+                    </a>
+                </div>
+                <!-- Li's Banner Area End Here -->
+                <!-- shop-top-bar start -->
+                <div class="shop-top-bar mt-30">
+                    <div class="shop-bar-inner">
+                        <div class="product-view-mode">
+                            <!-- shop-item-filter-list start -->
+                            <ul class="nav shop-item-filter-list" role="tablist">
+                                <li class="active" role="presentation"><a aria-selected="true" class="active show" data-toggle="tab" role="tab" aria-controls="grid-view" href="#grid-view"><i class="fa fa-th"></i></a></li>
+                                <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="list-view" href="#list-view"><i class="fa fa-th-list"></i></a></li>
+                            </ul>
+                            <!-- shop-item-filter-list end -->
+                        </div>
+                        <div class="toolbar-amount">
+                            <span>Hiển thị từ 1 -> 9 trong 15</span>
+                        </div>
+                    </div>
+                    <!-- product-select-box start -->
+                    <div class="product-select-box">
+                        <div class="product-short">
+                            <p>Sắp xếp theo:</p>
+                            <select class="nice-select">
+                                <option value="trending">Liên quan</option>
+                                <option value="sales">Tên Sản Phẩm (A - Z)</option>
+                                <!-- <option value="sales">Name (Z - A)</option> -->
+                                <option value="price-Low">Giá Thấp</option>
+                                <option value="price-Hight">Giá Cao</option>
+                                <option value="price-asc">Giá ưu đãi</option>
+                                <!-- <option value="price-asc">Model (Z - A)</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <!-- product-select-box end -->
+                </div>
+                <!-- shop-top-bar end -->
+                <!-- shop-products-wrapper start -->
+                <div class="shop-products-wrapper">
+                    <div class="tab-content">
+                        <div id="grid-view" class="tab-pane fade active show" role="tabpanel">
+                            <div class="product-area shop-product-area">
+                                <div class="row">
+                                    @{ var link = "";}
+                                    @foreach (var item in Model)
+                                    {
+                                        link = item.Product_Category_TypeId;
+                                        var url = "/chi-tiet-san-pham/" + item.Product_Id;
+                                        <div class="col-lg-4 col-md-4 col-sm-6 mt-40">
+                                            <!-- single-product-wrap start -->
+                                            <div class="single-product-wrap">
+                                                <div class="product-image">
+                                                    <a href="@url">
+                                                        <img src="@item.ImgaeAvatar" alt="Li's Product Image">
+                                                    </a>
+                                                    @if (item.Old_New == 1)
+                                                    {
+                                                        <span class="sticker">Mới</span>
+                                                    }
+                                                    else if (item.Old_New == 2)
+                                                    {
+                                                        <span class="sticker">99%</span>
+                                                    }
+                                                    else if (item.Old_New == 0)
+                                                    {
+                                                        <span class="sticker">Cũ</span>
+                                                    }
+
+                                                </div>
+                                                <div class="product_desc">
+                                                    <div class="product_desc_info">
+                                                        <div class="product-review">
+                                                            <h5 class="manufacturer">
+                                                                <a href="product-details.html">Graphic Corner</a>
+                                                            </h5>
+                                                            <div class="rating-box">
+                                                                <ul class="rating">
+                                                                    <li><i class="fa fa-star-o"></i></li>
+                                                                    <li><i class="fa fa-star-o"></i></li>
+                                                                    <li><i class="fa fa-star-o"></i></li>
+                                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <h4><a class="product_name" href="@url">@item.Product_Name</a></h4>
+                                                        <div class="price-box">
+                                                            <span class="new-price">$46.80</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-actions">
+                                                        <ul class="add-actions-link">
+                                                            <li class="add-cart active"><a href="shopping-cart.html">Mua Hàng</a></li>
+                                                            <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- single-product-wrap end -->
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="paginatoin-area">
+                            <div class="row">
+                                <!--Phân trang-->
+                                     
+                                <div class="col-lg-6 col-md-6 pt-xs-15">
+                                    @if (ViewBag.TotalPage >= 1)
+                                    {
+                                         int totalPage = (int)ViewBag.TotalPage;
+                                        int totalRecord = (int)ViewBag.Total;
+                                        <p>Có <strong>@totalRecord</strong> sản phẩm trong <strong>@totalPage</strong> trang</p>
+                                    }
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        @if (ViewBag.TotalPage >= 1)
+                                        {
+                                            var pageDisplay = (int)ViewBag.Maxpage;
+                                            int totalPage = (int)ViewBag.TotalPage;
+                                            int currentPage = ((int)ViewBag.Page);
+
+                                            //create number links
+                                            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                                            var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                                            var url = "/san-pham/" + link;
+                                            <ul class="pagination-box pt-xs-20 pb-xs-15">
+                                                @if (currentPage > ViewBag.First)
+                                                {
+                                                    <li>
+                                                        <a href="@url?page_num=ViewBag.Prev" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
+                                                    </li>
+                                                }
+                                                @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                                {
+                                                    if (currentPage == i)
+                                                    {
+                                                        <li class="active"><a href="@url?page_num=@i">@i</a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a href="@url?page_num=@i">@i</a></li>
+                                                    }
+                                                }
+                                                @if (currentPage < totalPage)
+                                                {
+                                                    <li>
+                                                        <a href="@url?page_num=@ViewBag.Next" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
+                                                    </li>
+                                                }
+
+                                            </ul>
+                                        }
+                                    </div>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- shop-products-wrapper end -->
+            </div>
+            <div class="col-lg-3 order-2 order-lg-1">
+                <!--sidebar-categores-box start  -->
+                <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
+                    <div class="sidebar-title">
+                        <h2>Laptops</h2>
+                    </div>
+                    <!-- category-sub-menu start -->
+                    <div class="category-sub-menu">
+                        <ul>
+                            <li class="has-sub">
+                                <a href="# ">Hãng Sản Xuất</a>
+                                <ul>
+                                    <li><a href="#">Apple(Iphone)</a></li>
+                                    <li><a href="#">Dell</a></li>
+                                    <li><a href="#">Asus</a></li>
+                                    <li><a href="#">HP</a></li>
+                                    <li><a href="#">Acer</a></li>
+                                    <li><a href="#">Lenovo</a></li>
+                                    <li><a href="#">MSI</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">Phần Mềm</a>
+                                <ul>
+                                    <li><a href="#">Diệt Virus</a></li>
+                                    <li><a href="#">Windows</a></li>
+                                    <li><a href="#">macOs</a></li>
+                                    <li><a href="#">Phần mềm khác</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">Phụ Kiện</a>
+                                <ul>
+                                    <li><a href="#">Màn hình</a></li>
+                                    <li><a href="#">Bàn phím & Chuột</a></li>
+                                    <li><a href="#">RAM & Ổ cứng</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- category-sub-menu end -->
+                </div>
+                <!--sidebar-categores-box end  -->
+                <!--sidebar-categores-box start  -->
+                <div class="sidebar-categores-box">
+                    <div class="sidebar-title">
+                        <h2>Tìm Kiếm</h2>
+                    </div>
+                    <!-- btn-clear-all start -->
+                    <button class="btn-clear-all mb-sm-30 mb-xs-30">Xóa Tất Cả</button>
+                    <!-- btn-clear-all end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area">
+                        <h5 class="filter-sub-titel">Hãng Sản Xuất</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Tất cả</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Apple (13)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Dell (12)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Acer (11)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">HP (11)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">MSI (11)</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Mức giá</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Tất cả</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Dưới 10 triệu</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Từ 10 - 15 triệu</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Từ 15 - 20 triệu</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Từ 20 - 25 triệu</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Trên 25 triệu</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Màn hình</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Tất cả</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Khoảng 13 inch</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Khoảng 14 inch</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Trên 15 inch</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Nhu Cầu</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Tất cả</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Gaming đồ họa</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Doanh Nhân</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Mỏng Nhẹ</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Sinh Viên</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Văn Phòng</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Trả góp ưu đãi</h5>
+                        <div class="size-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-size"><a href="#">Tất cả</a></li>
+                                    <li><input type="checkbox" name="product-size"><a href="#">Trả góp 0%</a></li>
+                                    <li><input type="checkbox" name="product-size"><a href="#">Giảm giá </a></li>
+
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <!-- <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
+                        <h5 class="filter-sub-titel">Dimension</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">40x60cm (6)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">60x90cm (6)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">80x120cm (6)</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                     </div> -->
+                    <!-- filter-sub-area end -->
+                </div>
+                <!--sidebar-categores-box end  -->
+                <!-- category-sub-menu start -->
+                <div class="sidebar-categores-box mb-sm-0 mb-xs-0">
+                    <div class="sidebar-title">
+                        <h2>Laptop</h2>
+                    </div>
+                    <div class="category-tags">
+                        <ul>
+                            <li><a href="# ">Dell</a></li>
+                            <li><a href="# ">Apple</a></li>
+                            <li><a href="# ">Sony</a></li>
+                            <li><a href="# ">Màn Hình</a></li>
+
+                            <li><a href="# ">Giảm giá</a></li>
+                        </ul>
+                    </div>
+                    <!-- category-sub-menu end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content Wraper Area End Here -->

@@ -1,0 +1,83 @@
+﻿@model IPagedList<LxShop.Models.EF.Product_Category>
+@using PagedList
+@using LxShop.Commons
+@using LxShop.Models.EF
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Product_Category search = ViewBag.Product_Category as Product_Category;
+
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a> Trang chủ </a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="#">Danh mục sản phẩm</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<form class="form-inline" style="margin-left:30px" name="frmCategory">
+    <div class="form-group">
+        <input type="text" class="form-control" id="srcNameCategory" name="ten_danhmuc" placeholder="Tên danh mục..." />
+        <button type="button" id="searchNameCategory" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+
+</form>
+<div class="form-group" style="margin-right:60px; float:right;margin-top:-33px">
+    <button type="button" class="btn btn-primary" onclick="GetCreate(id)">
+        <span class="glyphicon glyphicon-plus" style="margin-right:2px"></span>Thêm
+    </button>
+</div>
+<hr />
+<div id="content-view">
+    @{
+        Html.RenderAction("_TableView", "Product_Category");
+    }
+
+
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal-Category">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="content-modal-category">
+
+        </div>
+    </div>
+</div>
+@*@section scripts{
+    <script>
+            showBoxFunction();
+
+        $(document).click(function (event) {
+            $target = $(event.target);
+            if (!$target.closest('.box-right').length && $('.box-right > .function-item').is(":visible")) {
+                $('.box-right > .function-item').hide();
+            }
+            $('.box-right').on('click', function (event) {
+                if ($(this).children('.function-item').children('div').length < 1) {
+                    $(this).children('.function-item').css('display', 'css');
+                }
+            });
+        });
+        function showBoxFunction() {
+            debugger;
+
+            $('.box-over').on('click', function (event) {
+                if ($(this).children('.function-item').css('display') == 'none') {
+                    $('.function-item').fadeOut('fast');
+                    $(this).children('.function-item').fadeIn('fast');
+                }
+                else {
+                    $(this).children('.function-item').fadeOut('fast');
+                }
+            });
+        }
+    </script>
+    }*@
+

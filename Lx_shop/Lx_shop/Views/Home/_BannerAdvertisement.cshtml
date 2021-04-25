@@ -1,0 +1,29 @@
+﻿@model LxShop.Models.EF.BannerModel
+@using LxShop.Models.EF
+@{
+    var lstBanner = ViewBag.BannerModel as List<BannerModel>;
+}
+<div class="li-static-banner pt-20 pt-sm-30">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Single Banner Area -->
+            <!-- Single Banner Area End Here -->
+            <!-- Begin Single Banner Area -->
+            @foreach (var item in lstBanner)
+            {
+                if(item.banner.Banner_Type == 1)
+                {
+                <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner pb-xs-30">
+                    <a href="#" style="height:208px">
+                        <img src="@item.banner.Banner_Image" alt="Lx-shop Static Banner" style="height:100%">
+                    </a>
+                </div>
+                </div>
+                }
+            }
+
+          
+        </div>
+    </div>
+</div>

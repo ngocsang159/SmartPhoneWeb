@@ -1,0 +1,163 @@
+﻿@model LxShop.Models.EF.AccountAdmin
+
+@{
+    ViewBag.Title = "Details";
+}
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+<div class="mentos">
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.stt)
+        </dt>
+            s
+        <dd>
+            @Html.DisplayFor(model => model.stt)
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model=>model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avatar)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+
+            @if (Model.Gender == 1)
+            {
+                <span>Nam</span>
+            }
+            else
+            {
+                <span>Nữ</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Displayname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Displayname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facebook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>*@
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="Edit_Ad('@Model.ID')" id="EditAcc" >Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

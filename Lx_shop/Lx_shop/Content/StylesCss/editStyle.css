@@ -1,0 +1,210 @@
+﻿.breadcrumb {
+    font-size: 15px;
+    margin-bottom: 16px;
+    background-color: #eaeaea;
+}
+.mentos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.frmAll {
+    height: 28em;
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+
+table.mentos {
+    border: 1px solid #dcdcdc;
+    background: #fff;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border-bottom: 1px solid #dcdcdc !important;
+}
+
+.table-hover > tbody > tr:first-child:hover {
+    background-color: #eaeaea;
+}
+/*
+    Css table
+*/
+#content-view {
+    box-shadow: 1px 1px 10px #CCC;
+    margin: 0 12px;
+    background: #e2d9d9;
+}
+.mentos th,
+.mentos td {
+    border: 1px solid #ccc;
+    border-right: none;
+    text-align: center;
+}
+.table-hover > tbody > tr:first-child {
+    background-color: #f5f5f5;
+}
+/*Css Chức năng*/
+td.box-right {
+    border-left: 2px solid #ddd !important;
+    width: 45px;
+}
+
+.box-over {
+    position: relative;
+    text-align: center;
+    min-width: 30px;
+}
+
+.box-over .setting-row {
+        border: 1px solid #BBB;
+        background-color: #EEE;
+        border-radius: 3px;
+        height: 25px;
+        padding: 2px 4px;
+        cursor: pointer;
+        margin-bottom: -1px;
+        position: relative;
+    }
+
+.setting-row i {
+    font-size: 16px
+}
+
+.list-to-left {
+    transform: translate(-100%, -18%);
+}
+
+.function-item {
+    border: 1px solid #000;
+    position: absolute;
+    background-color: #fff;
+    z-index: 999;
+    /*transform: translate(-14%, 2%);*/
+    width: 60px;
+    /*opacity: 0;
+    visibility: hidden;*/
+}
+
+.function-item .list-function {
+        list-style: none;
+        padding: 0;
+        margin: 2px 0;
+    }
+
+.function-item .list-function > li {
+            padding: 3px 6px;
+}
+.style-button {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    /*margin-left: 2px;*/
+    /*justify-content: space-around;*/
+}
+.style-button i {
+        font-size: 14px;
+        position: absolute;
+        top: 15%;
+        left: 25%;
+}
+.bcgwhite {
+    color: white;
+}
+/*.show {
+    opacity: 1;
+    visibility: visible;
+    animation: hienthi 0.4s forwards;
+}*/
+.d-none {
+    display: none !important;
+}
+/*Css box-camera*/
+.user-header {
+    position: relative;
+}
+.box-camera {
+    left: 56%;
+    top: 42%;
+    
+    
+}
+.position-absolute {
+    position: absolute !important;
+}
+.box-camera #dropdownMenuButton {
+    padding: 3px 6px 3px 6px;
+    background: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0.6;
+    border: none;
+}
+/*.box-camera:hover {
+    background: rgba(233, 227, 227, 0.5);
+}*/
+
+.box-camera:hover #dropdownMenuButton {
+        color: #3a3b3c;
+}
+.dropdown-menu-camera {
+    position: absolute;
+    transform: translate3d(168px, 4px, 0px);
+    top: 48%;
+    padding: 6px 5px;
+    left: 16px;
+    will-change: transform;
+    background-color: #fff;
+    border-radius: 7px;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    border: 0;
+}
+.dropdown-menu{
+    display:block;
+}
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+    border: 1px solid rgba(0,0,0,.15);
+}
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    height: 195px;
+    padding: 14px;
+    text-align: center;
+}
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer {
+    background-color: #f9f9f9;
+    padding: 16px;
+}
+/**/
+.form-control {
+    border-radius: 6px !important;
+    border: 1px solid #ced4da;
+}
+
+/*Form create product*/
+.all-columns{
+    margin-bottom:10px;
+}
+.two-columns {
+    width: 50%;
+}
+.form-width{
+    width:100%!important;
+}
+.mentos .container .row{
+    padding-bottom:10px;
+}
+.mentos .container .row .col-sm-8 .control-label {
+        font-weight: normal;
+    } 
+.mentos .container .row .col-sm-8 .control-label span{
+    font-size:13px;
+}

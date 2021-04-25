@@ -1,0 +1,62 @@
+﻿@model LxShop.Models.EF.Customer
+
+<div class="col-lg-9 col-md-8">
+    <div class="header-top-right">
+        <ul class="ht-menu">
+            <!-- Begin Setting Area -->
+            @if (Session["CUSTOMER"] == null)
+            {
+                <li>
+                    <div class="ht-setting-list">
+                        <a href="/HeThong/Register">Đăng Ký</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="ht-setting-list">
+                        <a href="/HeThong/Login">
+                            Đăng Nhập
+
+                        </a>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="header_username">
+                    <div class="ht-setting-list">
+                        <div class="lx-avatar">
+                            <div class="lx-avatar__placeholder">
+                                <img src="~/Content/CssWeb/images/avatar/anh1.jpg" />
+                               
+                            </div>
+
+                        </div>
+
+                        <div class="navbar__username">@Model.Customer_name</div>
+                    </div>
+                    <!--header _user-menu-->
+                    <div class="username_menu">
+                        <ul class="username_menu_list">
+                            <li class="username_menu_item"><a href="" class="user_menu-link">Tài khoản của tôi</a></li>
+                            <li class="username_menu_item"><a href="" class="user_menu-link">Đơn mua</a></li>
+                            <li class="username_menu_item"><a href="/Home/LogoutClient" class="user_menu-link">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </li>
+            }
+            <li>
+
+                <span class="language-selector-wrapper">Ngôn ngữ :</span>
+                <div class="ht-language-trigger"><span>Việt Nam</span></div>
+                <div class="language ht-language">
+                    <ul class="ht-setting-list">
+
+                        <li class="active"><a href="#" style="display:block"><img src="~/Content/CssWeb/images/menu/flag-icon/3.png" width="20" height="20" alt="" style="padding-right: 3px">Vietnamese</a></li>
+                        <li style="display:block"><a href="#"><img src="~/Content/CssWeb/images/menu/flag-icon/1.jpg" alt="" style="padding-right: 5px">English</a></li>
+                    </ul>
+                </div>
+            </li>
+            <!-- Language Area End Here -->
+        </ul>
+    </div>
+</div>

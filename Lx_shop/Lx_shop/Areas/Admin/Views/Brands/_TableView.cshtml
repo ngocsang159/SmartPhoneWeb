@@ -1,0 +1,90 @@
+﻿@model IPagedList<LxShop.Models.EF.Brand>
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@using LxShop.Models.EF
+@using LxShop.Services
+@{
+    Brand search = ViewBag.Brand as Brand;
+}
+<table class="table table-hover table-bordered mentos">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Brand_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Brand_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CreateDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().UpdateDate)
+            </th>
+            <th></th>
+        </tr>
+ 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @if (item.Status == 1)
+                    {
+                        <span class="label label-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger">Locked</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+
+               <td class="box-right">
+                   <div class="box-over">
+                       <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                           <i class="fa fa-cog"></i>
+                       </div>
+
+                       <div class="function-item list-to-left d-none">
+                           <ul class="list-function">
+                               <li> <button class="btn btn-success style-button" onclick="GetEdit_Brand('@item.Brand_id')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                               <li><button class="btn btn-primary  style-button" onclick="GetDetails_Brand('@item.Brand_id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                               <li><button class="btn btn-danger style-button" onclick="GetDelete_Brand('@item.Brand_id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+
+
+                           </ul>
+                       </div>
+                   </div>
+                </td>
+            </tr>
+        }
+
+</table>
+@Html.PagedListPager(Model,page=>Url.Action("_TableView","Brands",search.SetInfoPagging(page)),PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+{
+    HttpMethod="POST",
+    UpdateTargetId ="content-view"
+}))
+

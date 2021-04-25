@@ -1,0 +1,88 @@
+﻿@model IPagedList<LxShop.Models.EF.Product_ColorModel>
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@using LxShop.Models.EF
+@{ 
+    Product_ColorModel search = ViewBag.Product_ColorModel as Product_ColorModel;
+}
+<table class="table table-hover table-bordered mentos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.Color_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.Color_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.Product_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.CreateDate)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_color.UpdatedDate)
+        </th>
+        
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_color.Color_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_color.Color_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.Product_Name)
+            </td>
+            <td>
+                @if (item.product_color.Status == 1)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Locked</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_color.CreateDate)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.product_color.UpdatedDate)
+            </td>
+            
+            
+            <td class="box-right">
+                <div class="box-over">
+                    <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                        <i class="fa fa-cog"></i>
+                    </div>
+
+                    <div class="function-item list-to-left d-none">
+                        <ul class="list-function">
+                            <li> <button class="btn btn-success style-button" onclick="GetEdit_Color('@item.product_color.Color_Id')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary  style-button" onclick="GetDetails_Color('@item.product_color.Color_Id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-danger style-button" onclick="GetDelete_Color('@item.product_color.Color_Id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("_TableView", "Product_Color", search.SetInfoPagging(page)), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions(){
+    HttpMethod = "POST",
+    UpdateTargetId = "content-view"
+}));

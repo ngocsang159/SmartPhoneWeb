@@ -1,0 +1,63 @@
+﻿@using LxShop.Models.EF;
+@{
+    var lstProduct_Category = ViewBag.Product_Category as List<Product_Category>;
+    var lstProduct_Category_Type = ViewBag.ProductCategory_Type as List<ProductCategory_Type>;
+    var lstBrand = ViewBag.Brand as List<Brand>;
+}
+
+<div class="header-bottom header-sticky stick d-none d-lg-block d-xl-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Begin Header Bottom Menu Area -->
+                <div class="hb-menu hb-menu-2">
+                    <nav>
+                        <ul>
+                            <li class="dropdown-holder">
+                                <a href="/Home/Index">Trang chủ</a>
+                            </li>
+                            @foreach (var item in lstProduct_Category)
+                            {
+                                var Id_ProductCategory = item.Product_CategoryId;
+                                <li class="megamenu-static-holder">
+                                    <a href="">@item.Product_CategoryName</a>
+                                    @if (item.Status == 1)
+                                    {
+                                    <ul class="hb-dropdown">
+                                        @foreach (var pct in lstProduct_Category_Type)
+                                        {
+                                            if (pct.Product_Category_Type.Product_CategoryId == Id_ProductCategory)
+                                            {
+                                                <li class="sub-dropdown-holder">
+                                                    <a href="#">@pct.Product_Category_Type.Product_Category_TypeName</a>
+                                                    <ul class="hb-dropdown hb-sub-dropdown">
+                                                        @foreach (var brand in lstBrand)
+                                                        {
+                                                            var url = "/san-pham/" + brand.Brand_id;
+                                                            <li><a href="@url">@brand.Brand_name</a></li>
+
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+
+                                        }
+
+                                    </ul>
+                                    }
+                                </li>
+
+                            }
+
+                            <li class="hb-info f-right p-0 d-sm-none d-lg-block">
+                                <span>Không có gì là không thể với một người luôn biết cố gắng!</span>
+                            </li>
+                            <!-- Header Bottom Menu Information Area End Here -->
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Header Bottom Menu Area End Here -->
+            </div>
+        </div>
+    </div>
+</div>

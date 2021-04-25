@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+}
+
+    <div class="register-box-body">
+        <p class="login-box-msg">Đăng ký tài khoản admin</p>
+
+        <form action="../../index.html" method="post" id="form-register">
+            <div class="form-group has-feedback">
+                <input type="text" id="user_name_register" class="form-control" placeholder="Tên đăng nhập">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="form-message"></span>
+
+            </div>
+            <div class="form-group has-feedback">
+                <input type="email" id="email_register" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" id="phone_register" class="form-control" placeholder="Số Điện Thoại">
+                <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" id="password_register" class="form-control" placeholder="Mật khẩu">
+                <span id="toggle" class="glyphicon glyphicon-eye-open form-control-feedback" style="pointer-events:auto"></span>
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" id="repass_register" class="form-control" placeholder="Nhập lại mật khẩu">
+                <span id="re_toggle" class="glyphicon glyphicon-eye-open form-control-feedback" style="pointer-events:auto"></span>
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" id="display_name_register" class="form-control" placeholder="Tên hiển thị">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="form-message"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" id="checkbox_tg"> Bạn đồng ý với điều khoản <a href="#"></a>
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="button" id="btnRegister" class="btn btn-primary btn-block btn-flat">Đăng Ký</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+        <!--<div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+            <i class="fa fa-facebook"></i> Sign up using
+            Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+            <i class="fa fa-google-plus"></i> Sign up using
+            Google+
+        </a>
+    </div>*-->
+        <p>Bạn đã có tài khoản ?  <a href="/Admin/Authenticate/Login" class="text-center">Đăng nhập</a></p>
+
+    </div>
+

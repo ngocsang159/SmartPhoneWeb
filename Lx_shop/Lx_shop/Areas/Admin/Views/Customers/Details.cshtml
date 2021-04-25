@@ -1,0 +1,101 @@
+﻿@model LxShop.Models.EF.CustomerModel
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+<div class="mentos">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.Customer_name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.customer.Customer_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.Password)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.Address)
+            </dt>
+
+            <dd>
+                @Model.customer.Address, @Model.district.DistrictName, @Model.province.ProvinceName
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.Status)
+            </dt>
+            <dd>
+                @if (Model.customer.Status == 1)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Locked</span>
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.CreatedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.CreatedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.CreatedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.CreatedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.UpdatedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.UpdatedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.UpdatedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.UpdatedBy)
+            </dd>
+
+       
+        </dl>
+    </div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="GetEdit_Customer('@Model.customer.Customer_id')" id="">Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

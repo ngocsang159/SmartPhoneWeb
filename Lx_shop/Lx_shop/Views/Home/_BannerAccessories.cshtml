@@ -1,0 +1,39 @@
+﻿@using LxShop.Models.EF
+@{ 
+    var lstBaner = ViewBag.BannerModel as List<BannerModel>;
+}
+<div class="li-static-home">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in lstBaner)
+            {
+                if (item.banner.Banner_Type == 3)
+                {
+                    var url = "/chi-tiet-san-pham/" + item.product.Product_Id;
+                    <div class="col-lg-12">
+                        <!-- Begin Li's Static Home Image Area -->
+                        <div class="li-static-home-image"></div>
+                        <!-- Li's Static Home Image Area End Here -->
+                        <!-- Begin Li's Static Home Content Area -->
+                        <div class="li-static-home-content">
+                            <h5>Giảm Đến<span> 50% Off</span></h5>
+                            <h2></h2>
+                            <h2>@item.banner.Banner_Title</h2>
+                            <p class="schedule">
+                                ₫
+                                Giá chỉ còn
+                                <span> @(item.product.Price.HasValue ? item.product.Price.Value.ToString("N0") : "Null")₫</span>
+                            </p>
+                            <div class="default-btn">
+                                <a href="@url" class="links">Mua Ngay</a>
+                            </div>
+                        </div>
+                        <!-- Li's Static Home Content Area End Here -->
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+</div>

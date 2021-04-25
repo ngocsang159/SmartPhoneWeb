@@ -1,0 +1,22 @@
+﻿@model LxShop.Models.EF.Product_Specifications
+
+@{
+    ViewBag.Title = "Delete";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="modal-header">
+    <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 style="text-align:center;margin:0">Xóa thông tin</h3>
+</div>
+<div class="modal-body">
+    @Html.HiddenFor(model => model.Specification_Id, new { htmlAttributes = new { @id = "Specification_Id" } })
+    <h3 style="margin:10px">Bạn có chắc chắn muốn xóa thông tin <strong> @Model.Specification_Name</strong> không?</h3>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" data-dismiss="modal">Hủy</button>
+    <button class="btn btn-primary" onclick="Del_Product_Spe()" type="button">Xóa</button>
+</div>
+
+

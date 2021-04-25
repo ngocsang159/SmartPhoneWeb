@@ -1,0 +1,130 @@
+﻿@model IPagedList<LxShop.Models.EF.ProductModel>
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@using LxShop.Models.EF
+@{
+    ProductModel search = ViewBag.ProductModel as ProductModel;
+}
+<table class="table table-hover table-bordered mentos">
+    <tr>
+        <th>
+
+            @Html.DisplayNameFor(model => model.First().Product.Product_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.ImgaeAvatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Original_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.ApplyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product_Category_Type.Product_Category_TypeName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().Brand.Brand_name)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Old_New)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Product.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Product_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Product_Name)
+            </td>
+            <td>
+                <img src="@item.Product.ImgaeAvatar" alt="ảnh" height="80" width="70" />
+            </td>
+            <td>
+                @(item.Product.Price.HasValue ? item.Product.Price.Value.ToString("N0") : "")
+            </td>
+            <td>
+                @(item.Product.Original_Price.HasValue ? item.Product.Original_Price.Value.ToString("N0") : "")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ApplyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Category_Type.Product_Category_TypeName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Brand_name)
+            </td>
+            <td>
+                @if (item.Product.Old_New == 1)
+                {
+                    <span class="label label-primary">Mới</span>
+                }
+                else if (item.Product.Old_New == 2)
+                {
+                    <span class="label label-warning">99%</span>
+                }
+                else
+                {
+                    <span class="label label-default">Cũ</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Quantity)
+            </td>
+            <td>
+                @if (item.Product.Status == 1)
+                {
+                    <span class="label label-success">Còn hàng</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Hết hàng</span>
+                }
+            </td>
+            <td class="box-right">
+                <div class="box-over">
+                    <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                        <i class="fa fa-cog"></i>
+                    </div>
+
+                    <div class="function-item list-to-left d-none">
+                        <ul class="list-function">
+
+                            <li> <button class="btn btn-success style-button" onclick="GetEdit_Product('@item.Product.Product_Id')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary  style-button" onclick="GetDetails_Product('@item.Product.Product_Id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-danger style-button" onclick="GetDelete_Product('@item.Product.Product_Id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("_TableView", "Products", search.SetInfoPagging(page)), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "content-view"
+}))

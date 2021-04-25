@@ -1,0 +1,67 @@
+﻿@model List<Lx_shop.Models.CartItem>
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    decimal total = 0;
+}
+@if(Model!=null)
+{
+    foreach(var item in Model)
+    {
+        if(item.productModel.Product.Price == null)
+        {
+            total += (item.productModel.Product.Original_Price.GetValueOrDefault(0) * item.Quantity);
+        }
+        else
+        {
+             total += (item.productModel.Product.Price.GetValueOrDefault(0) * item.Quantity);
+        }
+    }
+}
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Giỏ Hàng</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--
+
+-->
+<div class="main-cart-page main-container">
+    <div class="main container hidden-xs hidden-sm">
+        <div class="col-main cart_desktop_page cart-page">
+            <div class="cart page_cart hidden-xs">
+                <form action="" method="POST">
+                    <div class="bg-scroll">
+                        @{ Html.RenderPartial("UpdateCart", Model);}
+                    </div>
+                </form>
+                <div class="row margin-top-25 margin-bottom-40">
+                    <div class="col-lg-7 col-md-7">
+                        <div>
+                            <a id="btnContinue" class="form-cart-continue" title="Tiếp tục mua hàng">Tiếp tục mua hàng </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 bg_cart sshopping-cart">
+                        <div class="total">
+                            <p class="text-total">Tổng số tiền thanh toán :</p>
+                            <span class="price">38.000.000₫</span>
+                        </div>
+                        <a href="thanhtoan.html" class="btn-checkout-cart" title="Tiến hành thanh toán">
+                            Tiến hành thanh toán
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

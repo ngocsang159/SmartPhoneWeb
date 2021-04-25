@@ -1,0 +1,102 @@
+﻿@model LxShop.Models.EF.ProductCategory_Type
+
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+<div class="mentos">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model=>model.Product_Category_Type.Stt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model=>model.Product_Category_Type.Stt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.Product_CategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.Product_Category_TypeId)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.Product_Category_TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.Product_Category_TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category.Product_CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category.Product_CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Product_Category_Type.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Category_Type.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Category_Type.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="Edit_Cate_Type('@Model.Product_Category_Type.Product_Category_TypeId')" id="">Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

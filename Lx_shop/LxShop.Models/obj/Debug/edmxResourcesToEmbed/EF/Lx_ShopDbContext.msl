@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_smartphoneModelStoreContainer" CdmEntityContainer="db_smartphoneEntities">
+    <EntitySetMapping Name="AccountAdmins">
+      <EntityTypeMapping TypeName="db_smartphoneModel.AccountAdmin">
+        <MappingFragment StoreEntitySet="AccountAdmin">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Displayname" ColumnName="Displayname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="Banner_Id" ColumnName="Banner_Id" />
+          <ScalarProperty Name="Banner_Name" ColumnName="Banner_Name" />
+          <ScalarProperty Name="Banner_Title" ColumnName="Banner_Title" />
+          <ScalarProperty Name="Banner_Type" ColumnName="Banner_Type" />
+          <ScalarProperty Name="Banner_Image" ColumnName="Banner_Image" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
+          <ScalarProperty Name="Brand_name" ColumnName="Brand_name" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="Customer_name" ColumnName="Customer_name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="db_smartphoneModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictType" ColumnName="DistrictType" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Order_Status_Id" ColumnName="Order_Status_Id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_details">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Order_details">
+        <MappingFragment StoreEntitySet="Order_details">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="price_ship" ColumnName="price_ship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Status">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Order_Status">
+        <MappingFragment StoreEntitySet="Order_Status">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Order_Status_Id" ColumnName="Order_Status_Id" />
+          <ScalarProperty Name="Order_Status_Name" ColumnName="Order_Status_Name" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="ImgaeAvatar" ColumnName="ImgaeAvatar" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Original_Price" ColumnName="Original_Price" />
+          <ScalarProperty Name="Product_Category_TypeId" ColumnName="Product_Category_TypeId" />
+          <ScalarProperty Name="ApplyDate" ColumnName="ApplyDate" />
+          <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
+          <ScalarProperty Name="Is_Hot" ColumnName="Is_Hot" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Product_Infor" ColumnName="Product_Infor" />
+          <ScalarProperty Name="Old_New" ColumnName="Old_New" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Category">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product_Category">
+        <MappingFragment StoreEntitySet="Product_Category">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Product_CategoryId" ColumnName="Product_CategoryId" />
+          <ScalarProperty Name="Product_CategoryName" ColumnName="Product_CategoryName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Category_Type">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product_Category_Type">
+        <MappingFragment StoreEntitySet="Product_Category_Type">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Product_Category_TypeId" ColumnName="Product_Category_TypeId" />
+          <ScalarProperty Name="Product_Category_TypeName" ColumnName="Product_Category_TypeName" />
+          <ScalarProperty Name="Product_CategoryId" ColumnName="Product_CategoryId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Color">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product_Color">
+        <MappingFragment StoreEntitySet="Product_Color">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Color_Id" ColumnName="Color_Id" />
+          <ScalarProperty Name="Color_name" ColumnName="Color_name" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_image">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product_image">
+        <MappingFragment StoreEntitySet="Product_image">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Image_Id" ColumnName="Image_Id" />
+          <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Image_Type" ColumnName="Image_Type" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Specifications">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Product_Specifications">
+        <MappingFragment StoreEntitySet="Product_Specifications">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Specification_Id" ColumnName="Specification_Id" />
+          <ScalarProperty Name="Specification_Name" ColumnName="Specification_Name" />
+          <ScalarProperty Name="Screen" ColumnName="Screen" />
+          <ScalarProperty Name="Camera_rear" ColumnName="Camera_rear" />
+          <ScalarProperty Name="Camera_Selfie" ColumnName="Camera_Selfie" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="Internal_memory" ColumnName="Internal_memory" />
+          <ScalarProperty Name="CPU" ColumnName="CPU" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="Battery_capacity" ColumnName="Battery_capacity" />
+          <ScalarProperty Name="SIM" ColumnName="SIM" />
+          <ScalarProperty Name="Operating_System" ColumnName="Operating_System" />
+          <ScalarProperty Name="Made_In" ColumnName="Made_In" />
+          <ScalarProperty Name="Launch_Time" ColumnName="Launch_Time" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="ProvinceType" ColumnName="ProvinceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="db_smartphoneModel.Setting">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="Stt" ColumnName="Stt" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Content_text" ColumnName="Content_text" />
+          <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="db_smartphoneModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

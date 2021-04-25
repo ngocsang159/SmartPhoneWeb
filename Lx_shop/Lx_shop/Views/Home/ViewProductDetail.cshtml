@@ -1,0 +1,494 @@
+﻿@model List<LxShop.Models.EF.ProductModel>
+@using LxShop.Models.EF
+@{
+    ViewBag.Title = "GetProductByBrand";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var getProductByBrand_id = ViewBag.ProductModel as List<ProductModel>;
+    var getProductDetail = (ProductModel)ViewBag.DetailProduct;
+    var getImg = ViewBag.ProductImage as List<Product_ImageModel>;
+    var getSpecification = ViewBag.ProductSpecification as List<Product_SpecificationModel>;
+
+}
+@{
+    ViewBag.Title = "ViewProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header Area End Here -->
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/Home/Index">Home</a></li>
+                @foreach (var item in getProductByBrand_id)
+                {
+                    <li class="active"><a href=""> @item.Product_Category_Type.Product_Category_TypeName</a></li>
+                    <li class="active"><a href=""> @item.Brand.Brand_name</a></li>
+                    <li class="active"><a href=""> @item.Product.Product_Name</a></li>
+                    break;
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- content-wraper start -->
+<div class="content-wraper">
+    <div class="container">
+        <div class="row single-product-area">
+            <div class="col-lg-5 col-md-6">
+                <!-- Product Details Left -->
+                <div class="product-details-left">
+                    <div class="product-details-images slider-navigation-1">
+                        @*<div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
+                                <img src="@getProductDetail.Product.ImgaeAvatar" alt="product image">
+                            </a>
+                        </div>*@
+                        @foreach (var item in getImg)
+                        {
+                            <div class="lg-image">
+                                <a class="popup-img venobox vbox-item" href="@item.product_Image.Image" data-gall="myGallery">
+                                    <img src="@item.product_Image.Image" alt="product image" style="width:400px">
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <div class="product-details-thumbs slider-thumbs-1">
+                        @foreach (var item in getImg)
+                        {
+                            <div class="sm-image"><img src="@item.product_Image.Image" alt="product image thumb" style="width:100px"/>
+                        </div>
+                        }
+
+                        </div>
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content pt-60">
+                    <div class="product-info">
+
+                        <h2>@getProductDetail.Product.Product_Name</h2>
+                        <span class="product-details-ref">Thương hiệu: @getProductDetail.Brand.Brand_name</span>
+                        <div class="rating-box pt-20">
+                            <ul class="rating rating-with-review-item">
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <!-- <li class="review-item"><a href="#">Read Review</a></li>
+            <li class="review-item"><a href="#">Write Review</a></li> -->
+                            </ul>
+                        </div>
+                        @if (getProductDetail.Product.Price == null)
+                        {
+                            <div class="price-box pt-20">
+                                <span class="new-price new-price-2">
+                                    @(getProductDetail.Product.Original_Price.HasValue ? getProductDetail.Product.Original_Price.Value.ToString("N0") : "Liên hệ")₫
+                                </span>
+                            </div>
+
+                        }
+                        else
+                        {
+                    <div class="price-box pt-20">
+                        <span class="new-price new-price-2">
+                            @(getProductDetail.Product.Price.HasValue ? getProductDetail.Product.Price.Value.ToString("N0") : "Liên hệ")₫
+                        </span>
+                        <span class="old-price">@(getProductDetail.Product.Original_Price.HasValue ? getProductDetail.Product.Original_Price.Value.ToString("N0") : "Liên hệ")₫</span>
+                    </div>
+
+                        }
+
+                        <div class="product-desc">
+                            <label class="label">Mô tả:</label>
+                            <p>
+                                <span>
+                                     @Html.Raw(getProductDetail.Product.Description)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="product-variants">
+                            <div class="produt-variants-color">
+                                <label class="label">Màu sắc</label>
+                                <div class="color-item color active" data-color="#ff0080" style="background-color:#ff0080;"></div>
+                                <div class="color-item color" data-color="#000000" style="background-color:#000000;"></div>
+                                <div class="color-item color" data-color="#d9fdff" style="background-color:#d9fdff;"></div>
+                                <div class="color-item color" data-color="#1530e6" style="background-color:#1530e6;"></div>
+
+                            </div>
+                        </div>
+                        <!--Chọn bộ nhớ -->
+                        <div class="product-variants">
+                            <div class="produt-variants-storage">
+                                <label class="label">Chọn bộ nhớ</label>
+                                <select class="nice-select">
+                                    <option value="1" title="L" selected="selected">16 GB - 64 GB</option>
+                                    <option value="2" title="M">65GB-256GB</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="single-add-to-cart">
+                            <form action="#" class="cart-quantity">
+                                <div class="quantity">
+                                    <label>Số lượng</label>
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="purchase">
+                            <div class="OJJX3D">
+                                <div class="_2O0llP">
+                                    <button class="add-to-cart" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i><span>Thêm vào giỏ hàng</span></button>
+                                    <a href="/Cart/ViewCart" class="btn btn-solid-primary buynow" >Mua Ngay</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="product-additional-info pt-25">
+                            <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                            <div class="product-social-sharing pt-25">
+                                <ul>
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
+                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                        <p>Chính sách bảo mật</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <p>Chính sách vận chuyển</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-exchange"></i>
+                                        </div>
+                                        <p>Chính sách đổi trả</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wraper end -->
+<!-- Begin Product Area -->
+<div class="product-area pt-35">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="li-product-tab">
+                    <ul class="nav li-product-menu">
+                        <li><a class="active" data-toggle="tab" href="#description"><span>Thông tin sản phẩm</span></a></li>
+                        <li><a data-toggle="tab" href="#product-details"><span>Thông số kỹ thuật</span></a></li>
+                        <li><a data-toggle="tab" href="#reviews"><span>Khách hàng đánh giá</span></a></li>
+                    </ul>
+                </div>
+                <!-- Begin Li's Tab Menu Content Area -->
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="description" class="tab-pane active show" role="tabpanel">
+                <div class="product-description">
+                    <div class="">
+                        <p></p>
+                    </div>
+                    <p></p>
+                    <span>
+                         @Html.Raw(getProductDetail.Product.Product_Infor)
+                    </span>
+                </div>
+            </div>
+            <div id="product-details" class="tab-pane" role="tabpanel">
+                <div class="product-details-manufacturer">
+                    <div class="card re-card st-card">
+                        <div class="card-body">
+                            @foreach (var item in getSpecification)
+                            {
+                                <table class="st-pd-table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Màn hình</td>
+                                            <td><span>@item.product_Specifications.Screen</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Camera sau</td>
+                                            <td><span>@item.product_Specifications.Camera_rear</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Camera Selfie</td>
+                                            <td><span>@item.product_Specifications.Camera_Selfie</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>RAM&nbsp;</td>
+                                            <td><span>@item.product_Specifications.RAM</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bộ nhớ trong</td>
+                                            <td><span>@item.product_Specifications.Internal_memory</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CPU</td>
+                                            <td><span>@item.product_Specifications.CPU</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GPU</td>
+                                            <td><span>@item.product_Specifications.GPU</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dung lượng pin</td>
+                                            <td><span>@item.product_Specifications.Battery_capacity</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thẻ sim</td>
+                                            <td><span>@item.product_Specifications.SIM</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hệ điều hành</td>
+                                            <td><span>@item.product_Specifications.Operating_System</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Xuất xứ</td>
+                                            <td><span>@item.product_Specifications.Made_In</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thời gian ra mắt</td>
+                                            <td><span>@item.product_Specifications.Launch_Time</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="reviews" class="tab-pane" role="tabpanel">
+                <div class="product-reviews">
+                    <div class="product-details-comment-block">
+                        <div class="comment-review">
+                            <span>Grade</span>
+                            <ul class="rating">
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                        </div>
+                        <div class="comment-author-infos pt-25">
+                            <span>HTML 5</span>
+                            <em>01-12-18</em>
+                        </div>
+                        <div class="comment-details">
+                            <h4 class="title-block">Demo</h4>
+                            <p>Plaza</p>
+                        </div>
+                        <div class="review-btn">
+                            <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
+                        </div>
+                        <!-- Begin Quick View | Modal Area -->
+                        <div class="modal fade modal-wrapper" id="mymodal">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <h3 class="review-page-title">Write Your Review</h3>
+                                        <div class="modal-inner-area row">
+                                            <div class="col-lg-6">
+                                                <div class="li-review-product">
+                                                    <img src="images/product/large-size/3.jpg" alt="Li's Product">
+                                                    <div class="li-review-product-desc">
+                                                        <p class="li-product-name">Today is a good day Framed poster</p>
+                                                        <p>
+                                                            <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="li-review-content">
+                                                    <!-- Begin Feedback Area -->
+                                                    <div class="feedback-area">
+                                                        <div class="feedback">
+                                                            <h3 class="feedback-title">Our Feedback</h3>
+                                                            <form action="#">
+                                                                <p class="your-opinion">
+                                                                    <label>Your Rating</label>
+                                                                    <span>
+                                                                        <select class="star-rating">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="feedback-form">
+                                                                    <label for="feedback">Your Review</label>
+                                                                    <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                </p>
+                                                                <div class="feedback-input">
+                                                                    <p class="feedback-form-author">
+                                                                        <label for="author">
+                                                                            Name<span class="required">*</span>
+                                                                        </label>
+                                                                        <input id="author" name="author" value="" size="30" aria-required="true" type="text">
+                                                                    </p>
+                                                                    <p class="feedback-form-author feedback-form-email">
+                                                                        <label for="email">
+                                                                            Email<span class="required">*</span>
+                                                                        </label>
+                                                                        <input id="email" name="email" value="" size="30" aria-required="true" type="text">
+                                                                        <span class="required"><sub>*</sub> Required fields</span>
+                                                                    </p>
+                                                                    <div class="feedback-btn pb-15">
+                                                                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
+                                                                        <a href="#">Submit</a>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Feedback Area End Here -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quick View | Modal Area End Here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Area End Here -->
+<!-- Begin Li's Laptop Product Area -->
+<section class="product-area li-laptop-product pt-30 pb-50">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Li's Section Area -->
+            <div class="col-lg-12">
+                <div class="li-section-title">
+                    <h2>
+                        <span>Các sản phẩm tương tự</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                        
+                            @foreach (var item in Model)
+                            {
+                                var url = "/chi-tiet-san-pham/" + item.Product.Product_Id;
+                                <div class="col-lg-12">
+                                    <!-- single-product-wrap start -->
+                                    <div class="single-product-wrap">
+                                        <div class="product-image">
+                                            <a href="@url">
+                                                <img src="@item.Product.ImgaeAvatar" alt="@item.Product.Product_Name">
+                                            </a>
+                                            @if (item.Product.Is_Hot == 1)
+                                            {
+                                                <span class="sticker">Hot</span>
+                                            }
+                                            else if (item.Product.Old_New == 1)
+                                            {
+                                                <span class="sticker">Mới</span>
+                                            }
+                                            else if (item.Product.Old_New == 2)
+                                            {
+                                                <span class="sticker">99%</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="sticker">Cũ</span>
+                                            }
+
+                                        </div>
+                                        <div class="product_desc">
+                                            <div class="product_desc_info">
+                                                <div class="product-review">
+                                                    <h5 class="manufacturer">
+                                                        <a href="">Graphic Corner</a>
+                                                    </h5>
+                                                    <div class="rating-box">
+                                                        <ul class="rating">
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <h4><a class="product_name" href="@url">@item.Product.Product_Name</a></h4>
+                                                @if (item.Product.Price == null)
+                                                {
+                                                    <div class="price-box">
+                                                        <span class="new-price">@(item.Product.Original_Price.HasValue ? item.Product.Original_Price.Value.ToString("N0") : "Liên hệ")₫</span>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="price-box">
+                                                        <span class="new-price">@(item.Product.Price.HasValue ? item.Product.Price.Value.ToString("N0") : "Liên hệ")₫</span>
+                                                        <span class="old-price">@(item.Product.Original_Price.HasValue ? item.Product.Original_Price.Value.ToString("N0") : "Liên hệ")₫</span>
+
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            <div class="add-actions">
+                                                <ul class="add-actions-link">
+                                                    <li class="add-cart active"><a href="#">Mua Ngay</a></li>
+                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single-product-wrap end -->
+                                </div>
+                            }
+                </div>
+            </div>
+            <!-- Li's Section Area End Here -->
+        </div>
+    </div>
+</section>
+<!-- Li's Laptop Product Area End Here -->

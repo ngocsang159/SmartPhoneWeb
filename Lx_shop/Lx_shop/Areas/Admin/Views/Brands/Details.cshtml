@@ -1,0 +1,102 @@
+﻿@model LxShop.Models.EF.Brand
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+<div class="mentos">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="Edit_Brand('@Model.Brand_id')" id="">Sửa</button>
+    <button class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+</div>

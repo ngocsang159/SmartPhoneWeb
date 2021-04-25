@@ -1,0 +1,102 @@
+﻿@model LxShop.Models.EF.Product_ColorModel
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+
+<div class="mentos">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.Stt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.Stt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.Color_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.Color_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.Color_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product_color.Color_name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product.Product_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product.Product_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.Status)
+        </dt>
+
+        <dd>
+            @if (Model.product_color.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="GetEdit_Color('@Model.product_color.Color_Id')" id="">Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

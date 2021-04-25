@@ -1,0 +1,48 @@
+﻿@using LxShop.Models.EF;
+@{ 
+  var lstProduct_Category_Type = ViewBag.ProductCategory_Type as List<ProductCategory_Type>;
+    var lstBrand = ViewBag.Brand as List<Brand>;
+}
+
+    <ul>
+        @foreach (var pct in lstProduct_Category_Type)
+        {
+        <li class="right-menu">
+            <a href="">
+
+                @pct.Product_Category_Type.Product_Category_TypeName
+            </a>
+            <ul class="cat-mega-menu smarthphone">
+                <li class="right-menu cat-mega-title">
+                    <a href="shop-left-sidebar.html">Hãng Sản Xuất</a>
+                    <ul>
+
+                        @foreach (var brand in lstBrand)
+                        {
+                            <li><a href="#">@brand.Brand_name</a></li>
+                           
+                        }
+
+                    </ul>
+                </li>
+                <li class="right-menu cat-mega-title">
+                    <a href="shop-left-sidebar.html">Phụ Kiện</a>
+                    <ul>
+                        <li><a href="#">Tai Nghe</a></li>
+                        <li><a href="#">Ốp Lưng</a></li>
+                        <li><a href="#">Màn Hình</a></li>
+                        <li><a href="#">Kính Cường Lực</a></li>
+                        <li><a href="#">Sạc Pin & Dây Cáp</a></li>
+                        <li><a href="#">Phụ Kiện Khác</a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+        }
+        <li class="rx-parent">
+            <a class="rx-default">More Categories</a>
+            <a class="rx-show">Less Categories</a>
+        </li>
+    </ul>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LxShop.Models.EF.Product_Color>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a> Trang chủ </a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="#">Màu sắc</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<form class="form-inline" style="margin-left:30px" name="frmProductColor">
+    <div class="form-group">
+        <input type="text" class="form-control" id="Color_Name" name="" placeholder="Tên màu sắc..." />
+        @*<input type="text" class="form-control" id="Product_Category" name="Product_Category.Product_CategoryId" placeholder="Tên danh mục..." />*@
+        <button type="button" id="searchColorName" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+
+</form>
+<div class="form-group" style="margin-right:60px; float:right;margin-top:-33px">
+    <button type="button" class="btn btn-primary" onclick="GetCreateColor(id)"><span class="glyphicon glyphicon-plus" style="margin-right:2px"></span>Thêm</button>
+</div>
+<hr />
+<div id="content-view">
+    @{
+        Html.RenderAction("_TableView", "Product_Color");
+    }
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal-Color">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="content-modal-Color">
+          
+        </div>
+    </div>
+</div>
+

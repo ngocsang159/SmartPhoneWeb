@@ -1,0 +1,91 @@
+﻿@model IPagedList<LxShop.Models.EF.BannerModel>
+@using LxShop.Models.EF
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@{
+    BannerModel search = ViewBag.BannerModel as BannerModel;
+}
+<table class="table table-hover table-bordered mentos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.Banner_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.Banner_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.Banner_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.Banner_Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().banner.CreatedDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.banner.Banner_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.banner.Banner_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.banner.Banner_Title)
+            </td>
+            <td>
+                <img src="@item.banner.Banner_Image" alt="ảnh" height="80" width="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.Product_Name)
+            </td>
+            <td>
+                @if (item.banner.Status == 1)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Locked</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.banner.CreatedDate)
+            </td>
+
+            <td class="box-right">
+                <div class="box-over">
+                    <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                        <i class="fa fa-cog"></i>
+                    </div>
+
+                    <div class="function-item list-to-left d-none">
+                        <ul class="list-function">
+                            <li> <button class="btn btn-success style-button" onclick="GetEdit_Banner('@item.banner.Banner_Id')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary  style-button" onclick="GetDetails_Banner('@item.banner.Banner_Id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-danger style-button" onclick="GetDelete_Banner('@item.banner.Banner_Id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model,page => Url.Action("_TableView","Banners",search.SetInfoPagging(page)),PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing( new AjaxOptions() { 
+ HttpMethod="POST",
+ UpdateTargetId="content-view"
+}))
+

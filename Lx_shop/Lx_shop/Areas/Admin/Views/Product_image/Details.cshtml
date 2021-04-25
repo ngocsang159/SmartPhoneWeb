@@ -1,0 +1,108 @@
+﻿@model LxShop.Models.EF.Product_ImageModel
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mentos">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Stt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.Stt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Image_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.Image_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Image)
+        </dt>
+
+        <dd>
+            <img src="@Model.product_Image.Image" alt="ảnh" height="80" width="70" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Image_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.Image_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.Product_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.Status)
+        </dt>
+
+        <dd>
+            @if (Model.product_Image.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_Image.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_Image.UpdatedBy)
+        </dd>
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="GetEdit_Image('@Model.product_Image.Image_Id')" id="">Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

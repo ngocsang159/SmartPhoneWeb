@@ -1,0 +1,208 @@
+﻿@model LxShop.Models.EF.Product
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="content-header" style="padding-top:1px">
+    <h3 style="text-align:center; margin-bottom:0;margin-top:5px">Chỉnh sửa thông tin</h3>
+    <hr style="margin:8px" />
+    <div class="modal-body">
+        <form id="frmEditProduct" class="mentos">
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                @Html.HiddenFor(model => model.Product_Id)
+                <div class="form-inline all-columns">
+                    <div class="form-group  two-columns">
+                        @Html.LabelFor(model => model.Product_Id, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Product_Id, new { htmlAttributes = new { @class = "form-control form-width", @readonly = "true", @style = "width:80px" } })
+                            @Html.ValidationMessageFor(model => model.Product_Id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Product_Name, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Product_Name, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.Product_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns" style="position:relative;">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.ImgaeAvatar, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.ImgaeAvatar, new { htmlAttributes = new { @class = "form-control form-width" } })
+
+                            @Html.ValidationMessageFor(model => model.Product_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="position:absolute; left:38%">
+                        <button id="selectImgAvatar" type="button" style="margin-top:3px;">Chọn ảnh</button>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Original_Price, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Original_Price, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.Original_Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.ApplyDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.TextBox("ApplyDate", Model.ApplyDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control form-width" })
+                            @Html.ValidationMessageFor(model => model.ApplyDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Product_Category_TypeId, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.DropDownList("Product_Category_TypeId", null, "-- Chọn loại danh mục --", htmlAttributes: new { @class = "form-control form-width", required = true })
+                            @Html.ValidationMessageFor(model => model.Product_Category_TypeId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Brand_id, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.DropDownList("Brand_id", null, "-- Chọn hãng sản xuất --", htmlAttributes: new { @class = "form-control form-width", required = true })
+                            @Html.ValidationMessageFor(model => model.Brand_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Is_Hot, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5" style="padding-top:8px;">
+                            @Html.RadioButtonFor(model => model.Is_Hot, 1) <span style="margin-right:20px">Nổi Bật</span>
+                            @Html.RadioButtonFor(model => model.Is_Hot, 0) <span>Thường</span>
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-1", @style = "margin-left:40px" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control form-width", @id = "Description" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Product_Infor, htmlAttributes: new { @class = "control-label col-md-2", @style = "margin-left:-44px" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.Product_Infor, new { htmlAttributes = new { @class = "form-control form-width", @id = "Product_Infor" } })
+                            @Html.ValidationMessageFor(model => model.Product_Infor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns" style="margin:15px 0;">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Old_New, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5" style="padding-top:6px;">
+                            @Html.RadioButtonFor(model => model.Old_New, 1, htmlAttributes: new { @checked = true }) <span style="margin-right:20px">Mới</span>
+                            @Html.RadioButtonFor(model => model.Old_New, 2) <span style="margin-right:20px">99%</span>
+                            @Html.RadioButtonFor(model => model.Old_New, 0) <span>Cũ</span>
+                            @Html.ValidationMessageFor(model => model.Old_New, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5" style="padding-top:8px;">
+                            @Html.RadioButtonFor(model => model.Status, 1, htmlAttributes: new { @checked = true }) <span style="margin-right:20px">Active</span>
+                            @Html.RadioButtonFor(model => model.Status, 0) <span>Locked</span>
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.TextBox("CreateDate", Model.CreateDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control form-width" })
+                            @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.CreateBy, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline all-columns">
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.TextBox("UpdatedDate", Model.UpdatedDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control form-width" })
+
+                            @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group two-columns">
+                        @Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control form-width" } })
+                            @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer" style="margin-right:30px">
+    <button  class="btn btn-warning" onclick="Exit_Product()">Đóng</button>
+    <button class="btn btn-success" onclick="Edit_Product()">Lưu</button>
+</div>
+@section scriptsProducts {
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace("Description");
+            CKEDITOR.replace("Product_Infor");
+            $("#selectImgAvatar").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (url) {
+                    $("#ImgaeAvatar").val(url);
+                }
+                finder.popup();
+            })
+        })
+
+    </script>
+}

@@ -1,0 +1,95 @@
+﻿@model LxShop.Models.EF.Product_Category
+
+@{
+    ViewBag.Title = "Edit";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 style="text-align:center; padding-top:5px; margin-bottom:0">Chỉnh sửa thông tin</h3>
+<hr style="margin:8px" />
+<div class="modal-body">
+    <form id="frmEditCategory" class="frmAll mentos">
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @Html.HiddenFor(model => model.Product_CategoryId)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product_CategoryId, htmlAttributes: new { @class = "control-label col-md-3" })                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Product_CategoryId, new { htmlAttributes = new { @class = "form-control", @readonly = "true", @style = "width:80px" } })
+                    @Html.ValidationMessageFor(model => model.Product_CategoryName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product_CategoryName, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Product_CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Product_CategoryName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.RadioButtonFor(model => model.Status, 1) <span style="margin-right:20px">Active</span>
+                    @Html.RadioButtonFor(model => model.Status, 0) <span >Locked</span>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.TextBox("CreatedDate", Model.CreatedDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.TextBox("UpdatedDate", Model.UpdatedDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsDeleted, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsDeleted, new { htmlAttributes = new {@class = "form-control" } } )
+                        @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+    <button class="btn btn-success" onclick="Edit_Category()">Lưu</button>
+</div>
+
+
+
+
+

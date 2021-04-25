@@ -1,0 +1,117 @@
+﻿@model IPagedList<LxShop.Models.EF.Product_SpecificationModel>
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@using LxShop.Models.EF
+@{ 
+    Product_SpecificationModel search = ViewBag.Product_SpecificationModel as Product_SpecificationModel;
+}
+<table class="table table-hover table-bordered mentos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Specification_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Screen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Camera_rear)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.RAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Internal_memory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.CPU)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Battery_capacity)
+        </th>
+        
+       
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Made_In)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.First()._product.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.Status)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.First().product_Specifications.CreateDate)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Specification_Id)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Screen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Camera_rear)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.RAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Internal_memory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.CPU)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Battery_capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.Made_In)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item._product.Product_Name)
+            </td>
+            <td>
+                @if (item.product_Specifications.Status == 1)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Locked</span>
+                }
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.product_Specifications.CreateDate)
+            </td>*@
+            <td class="box-right">
+                <div class="box-over">
+                    <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                        <i class="fa fa-cog"></i>
+                    </div>
+
+                    <div class="function-item list-to-left d-none">
+                        <ul class="list-function">
+                            <li> <button class="btn btn-success style-button" onclick="GetEdit_Specification('@item.product_Specifications.Specification_Id')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary  style-button" onclick="GetDetails_Specification('@item.product_Specifications.Specification_Id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-danger style-button" onclick="GetDelete_Specification('@item.product_Specifications.Specification_Id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,207 @@
+﻿@model LxShop.Models.EF.ProductModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-header" style="padding-top:1px">
+    <h3 style="t margin-bottom:0;margin-top:5px">Thông tin chi tiết sản phẩm</h3>
+    <hr style="margin:8px" />
+    <div class="modal-body mentos">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Stt)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Stt)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Product_Id)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Product_Id)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Product_Name)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Product_Name)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.ImgaeAvatar)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label"><img src="@Model.Product.ImgaeAvatar" alt="Ảnh" /></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Original_Price)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Original_Price)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Price)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Price)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.ApplyDate)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.ApplyDate)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product_Category_Type.Product_Category_TypeName)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product_Category_Type.Product_Category_TypeName)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Brand_id)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Brand.Brand_name)</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Description)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Description)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Product_Infor)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Product_Infor)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Old_New)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">
+                        @if (Model.Product.Old_New == 1)
+                        {
+                            <span class="label label-primary">Sản phẩm mới</span>
+                        }
+                        else if (Model.Product.Old_New == 2)
+                        {
+                            <span class="label label-success">Like New 99%</span>
+                        }
+                        else
+                        {
+                            <span class="label label-default">Sản phẩm cũ</span>
+                        }
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Is_Hot)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">
+                        @if (Model.Product.Status == 1)
+                        {
+                            <span class="label label-warning">Nổi Bật</span>
+                        }
+                        else
+                        {
+                            <span class="label label-info">Thường</span>
+                        }
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Quantity)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.Quantity)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.Status)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">
+                        @if (Model.Product.Status == 1)
+                        {
+                            <span class="label label-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Locked</span>
+                        }
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.CreateDate)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label"> @Html.DisplayFor(model => model.Product.CreateDate) </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.CreateBy)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">
+                        @Html.DisplayFor(model => model.Product.CreateBy)
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.UpdatedDate)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">@Html.DisplayFor(model => model.Product.UpdatedDate)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">@Html.DisplayNameFor(model => model.Product.UpdatedBy)</label>
+                </div>
+                <div class="col-sm-8">
+                    <label class="control-label">
+                        @Html.DisplayFor(model => model.Product.UpdatedBy)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer" style="text-align:left">
+    <button class="btn btn-success" type="button" onclick="GetEdit_Product('@Model.Product.Product_Id')" id="">Sửa</button>
+    <button class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+</div>

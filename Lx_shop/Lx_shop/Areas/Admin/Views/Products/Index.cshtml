@@ -1,0 +1,51 @@
+﻿@model IPagedList<LxShop.Models.EF.ProductModel>
+@using PagedList
+@using PagedList.Mvc
+@using LxShop.Commons
+@using LxShop.Models.EF
+@using LxShop.Services
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ProductModel search = ViewBag.ProductModel as ProductModel;
+}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a> Trang chủ </a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="#">Sản Phẩm</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<form class="form-inline" style="margin-left:10px" name="frmProduct">
+    <div class="form-group">
+        <input type="text" class="form-control" id="srcNameProduct" name="Product_Name" placeholder="Tên sản phẩm..." />
+        <button type="button" id="searchNameProduct" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+</form>
+<div class="form-group" style="margin-right:60px; float:right;margin-top:-33px">
+    @*<button type="button" class="btn btn-success" onclick="GetCreateProducts(id)">*@
+    <button type="button" class="btn btn-primary" onclick="GetCreateProducts()"><span class="glyphicon glyphicon-plus" style="margin-right:2px"></span>Thêm</button>
+    @*</button>*@
+</div>
+<hr />
+<div id="content-view">
+    @{
+        Html.RenderAction("_TableView", "Products");
+    }
+
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal-Product">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="content-modal-product">
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,106 @@
+﻿@model IPagedList<LxShop.Models.EF.Product_Category>
+@using PagedList
+@using LxShop.Models.EF
+@using LxShop.Commons
+@using PagedList.Mvc
+@{
+    Product_Category search = ViewBag.Product_Category as Product_Category;
+}
+<table class="table table-hover table-bordered mentos" id="demo-table" >
+    <thead>
+        <tr>
+            <th id='column-header-1'>
+                @Html.DisplayNameFor(model => model.First().Product_CategoryId)
+                <div id='column-header-1-sizer'></div>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Product_CategoryName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Product.)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.First().Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CreatedDate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.First().CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().IsDeleted)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_CategoryName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Status)*@
+                    @if (item.Status == 1)
+                    {
+                        <span class="label label-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger">Locked</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                </td>*@
+
+                <td class="box-right">
+                    <div class="box-over">
+                        <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                            <i class="fa fa-cog"></i>
+                        </div>
+
+                        <div class="function-item list-to-left d-none">
+                            <ul class="list-function">
+                                <li> <button class="btn btn-success style-button" onclick="Edit_Cate('@item.Product_CategoryId')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                                <li><button class="btn btn-primary  style-button" onclick="GetDetails_Cate('@item.Product_CategoryId')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                                <li><button class="btn btn-danger style-button" onclick="Delete_Cate('@item.Product_CategoryId')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("_TableView", "Product_Category",search.SetInfoPagging(page)), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "content-view",
+    
+}))

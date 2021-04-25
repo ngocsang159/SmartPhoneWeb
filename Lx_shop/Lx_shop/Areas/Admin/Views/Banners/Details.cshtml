@@ -1,0 +1,132 @@
+﻿@model LxShop.Models.EF.BannerModel
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 style="text-align:center; padding-top:10px;">Thông tin chi tiết</h3>
+<hr />
+<div class="mentos">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.stt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.stt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Banner_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.Banner_Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Banner_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.Banner_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Banner_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.Banner_Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Banner_Type)
+        </dt>
+
+        <dd style="margin-bottom:10px">
+            @if (Model.banner.Banner_Type == 1)
+            {
+                <span class="label label-warning">To</span>
+            }
+            else if (Model.banner.Banner_Type == 2)
+            {
+                <span class="label label-info">Vừa</span>
+            }
+            else if(Model.banner.Banner_Type == 0)
+            {
+                <span class="label label-default">Nhỏ</span>
+            }
+            else
+            {
+                 <span>Null</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Banner_Image)
+        </dt>
+
+        <dd>
+            <img src="@Model.banner.Banner_Image" alt="ảnh" height="80" width="70" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.Product_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.Status)
+        </dt>
+
+        <dd>
+            @if (Model.banner.Status == 1)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-danger">Locked</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banner.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banner.UpdatedBy)
+        </dd>
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" onclick="GetEdit_Banner('@Model.banner.Banner_Id')" id="">Sửa</button>
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+</div>

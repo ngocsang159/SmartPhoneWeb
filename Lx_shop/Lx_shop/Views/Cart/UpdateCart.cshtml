@@ -1,0 +1,54 @@
+﻿@model List<Lx_shop.Models.CartItem>
+
+@if (Model.Count > 0)
+{
+    <div class="cart-thead">
+        <div style="width: 18%;" class="a-center">Ảnh sản phẩm</div>
+        <div style="width: 32%;" class="a-center">Tên sản phẩm</div>
+        <div style="width: 17%;" class="a-center">Đơn giá</div>
+        <div style="width: 14%;" class="a-center">Số lượng</div>
+        <div style="width: 14%;" class="a-center">Tổng tiền</div>
+        <div style="width: 5%;" class="a-center">Xóa</div>
+    </div>
+    <div class="cart-tbody">
+        @foreach(var item in Model)
+        { 
+        <div class="item-cart product">
+
+            <div style="width: 18%;" class="image">
+                <a href="" class="product-image">
+                    <img src="./images/product/small-size/1.jpg" alt="">
+                </a>
+            </div>
+
+            <div style="width: 32%;" class="a-center">
+                <h3 class="product-name"><a href="">Samsung Galaxy Note 20</a></h3>
+            </div>
+            <div style="width: 17%;" class="a-center">
+                <span class="item-price">
+                    <span class="price">19.000.000₫</span>
+                </span>
+            </div>
+            <div style="width: 14%;" class="a-center">
+                <div class="input_qty_pr">
+                    <input class="variantID" type="hidden" name="variantId" value="7823812">
+                    <input type="text" maxlength="12" readonly="" min="0" class="check_number_here input-text number-sidebar input_pop input_pop qtyItem7823812" id="qtyItem7823812" data-id="@item.productModel.Product.Product_Id" name="Lines"  value="@item.Quantity">
+                    <button onclick="var result = document.getElementById('qtyItem7823812'); var qtyItem7823812 = result.value; if( !isNaN( qtyItem7823812 )) result.value++;return false;" class="increase_pop items-count btn-plus" type="button">+</button>
+                    <button onclick="var result = document.getElementById('qtyItem7823812'); var qtyItem7823812 = result.value; if( !isNaN( qtyItem7823812 ) && qtyItem7823812 > 1 ) result.value--;return false;" class="reduced_pop items-count btn-minus" type="button">-</button>
+                </div>
+            </div>
+            <div style="width: 14%;" class="a-center">
+                <span class="cart-price">
+                    <span class="price">38.000.000₫</span>
+                </span>
+            </div>
+            <div style="width: 5%;" class="a-center">
+                <a href="" class="remove" title="Xóa">
+                    <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                </a>
+            </div>
+        </div>}
+        
+    </div>
+}
+

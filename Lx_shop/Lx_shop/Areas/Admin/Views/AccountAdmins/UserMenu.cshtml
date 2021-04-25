@@ -1,0 +1,50 @@
+﻿@model LxShop.Models.EF.AccountAdmin
+<li class="dropdown user user-menu">
+    <a href="#" class="dropdown-toggle" id="dropdown_info" data-show-info="0">
+        <img src="@Model.Avatar"  class="user-image upload-img" alt="User Image">
+        <span class="hidden-xs">@Model.Displayname</span>
+    </a>
+    <ul class="dropdown-menu d-none">
+        <!-- User image -->
+        <li class="user-header">
+            <img src="@Model.Avatar" class="img-circle upload-img" alt="User Image">
+            <!--box camera-->
+            <div class="dropright position-absolute box-camera" data-show-camera="0" id="show_camera">
+              
+                    <button type="button" id="dropdownMenuButton"> <i class="fa fa-camera"></i></button>
+            </div>
+            <div class="dropdown-menu-camera display d-none">
+                <a class="dropdown-item" href="#">Xem ảnh</a>
+                <label class="dropdown-item" for="fileUpload">Tải ảnh lên</label>
+                <input type="file" value="" id="fileUpload" style="display:none" />
+            </div>
+            <p>
+                @Model.Displayname<br />
+                <strong style="color:#d02b11;">@Model.Username (@Model.ID)</strong>
+                <small>September - 15 - 1999</small>
+            </p>
+        </li>
+        <!-- Menu Body -->
+        <!--<li class="user-body">
+        <div class="row">
+            <div class="col-xs-4 text-center">
+                <a href="#">Followers</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="#">Sales</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="#">Friends</a>
+            </div>
+        </div>-->
+        <!-- /.row -->
+        <li class="user-footer">
+            <div class="pull-left">
+                <a href="#" class="btn btn-info btn-flat">Thông tin</a>
+            </div>
+            <div class="pull-right">
+                <a href="/Admin/Authenticate/Logout" class="btn btn-danger btn-flat">Đăng Xuất</a>
+            </div>
+        </li>
+    </ul>
+</li>

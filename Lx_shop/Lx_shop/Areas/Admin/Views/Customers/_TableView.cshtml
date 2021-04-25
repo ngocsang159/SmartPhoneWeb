@@ -1,0 +1,97 @@
+﻿@model IPagedList<LxShop.Models.EF.CustomerModel>
+@using LxShop.Commons
+@using LxShop.Models.EF
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    CustomerModel search = ViewBag.CustomerModel as CustomerModel;
+}
+<table class="table table-hover table-bordered mentos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.Customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().customer.CreatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.Customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.Password)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.DistrictId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProvinceId)
+                </td>*@
+            <td>
+                <span>@item.customer.Address, @item.district.DistrictName, @item.province.ProvinceName</span>
+            </td>
+            <td>
+                @if (item.customer.Status == 1)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label label-danger">Locked</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.CreatedDate)
+            </td>
+            <td class="box-right">
+                <div class="box-over">
+                    <div class="setting-row" data-show-box="0" onclick="showBoxFunction(this)">
+                        <i class="fa fa-cog"></i>
+                    </div>
+
+                    <div class="function-item list-to-left d-none">
+                        <ul class="list-function">
+                            <li> <button class="btn btn-success style-button" onclick="GetEdit_Customer('@item.customer.Customer_id','@item.customer.ProvinceId')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary  style-button" onclick="GetDetails_Customer('@item.customer.Customer_id')"><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-danger style-button" onclick="GetDelete_Customer('@item.customer.Customer_id')"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("_TableView", "Customers", search.SetInfoPagging(page)),PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing( new AjaxOptions() { 
+    HttpMethod = "POST",
+    UpdateTargetId ="content-view"
+    
+    
+}))

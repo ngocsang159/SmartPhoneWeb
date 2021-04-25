@@ -1,0 +1,127 @@
+﻿@model LxShop.Models.EF.Banner
+
+@{
+    ViewBag.Title = "Edit";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3 style="text-align:center; padding-top:5px; margin-bottom:0">Chỉnh sửa thông tin</h3>
+<hr style="margin:8px" />
+<div class="modal-body">
+    <form id="frmEditBanner" class="frmAll mentos">
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Banner_Id)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Banner_Id, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Banner_Id, new { htmlAttributes = new { @class = "form-control", @readonly = "true", @style = "width:80px" } })
+                    @Html.ValidationMessageFor(model => model.Banner_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Banner_Name, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Banner_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Banner_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Banner_Title, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Banner_Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Banner_Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Banner_Type, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.RadioButtonFor(model => model.Banner_Type, 1, htmlAttributes: new { @checked = true }) <span style="margin-right:20px">To</span>
+                    @Html.RadioButtonFor(model => model.Banner_Type, 2) <span style="margin-right:20px">Vừa</span>
+                    @Html.RadioButtonFor(model => model.Banner_Type, 0) <span style="margin-right:20px">Nhỏ</span>
+                    @Html.RadioButtonFor(model => model.Banner_Type, 3) <span>Không</span>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Banner_Image, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Banner_Image, new { htmlAttributes = new { @class = "form-control" } })
+                    <br /> <button id="selectImgBanner" type="button" style="margin-top:5px;">Chọn Ảnh</button>
+                    @Html.ValidationMessageFor(model => model.Banner_Image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product_Id, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.DropDownList("Product_Id", null, "---- Chọn sản phẩm ---", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Product_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.RadioButtonFor(model => model.Status, 1) <span style="margin-right:20px">Active</span>
+                    @Html.RadioButtonFor(model => model.Status, 0) <span>Locked</span>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.TextBox("CreatedDate", Model.CreatedDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.TextBox("UpdatedDate", Model.UpdatedDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" data-dismiss="modal">Đóng</button>
+    <button class="btn btn-success" onclick="Banner_Edit()">Lưu</button>
+</div>
+<script>
+    $("#selectImgBanner").click(function () {
+        alert(1);
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $("#Banner_Image").val(url);
+        }
+        finder.popup();
+    });
+</script>

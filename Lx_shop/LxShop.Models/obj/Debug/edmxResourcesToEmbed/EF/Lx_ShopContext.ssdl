@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_smartphoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="stt" Type="bigint" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="500" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Displayname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="Banner_Id" />
+    </Key>
+    <Property Name="stt" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Banner_Id" Type="bigint" Nullable="false" />
+    <Property Name="Banner_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Banner_Category">
+    <Key>
+      <PropertyRef Name="Product_CategoryId" />
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="Product_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="stt" Type="bigint" />
+    <Property Name="Customer_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="phone" Type="bigint" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_id" />
+    </Key>
+    <Property Name="stt" Type="bigint" Nullable="false" />
+    <Property Name="Order_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="phone" Type="bigint" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProvinceId" Type="bigint" />
+    <Property Name="DistrictId" Type="bigint" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="Customer_id" Type="nchar" MaxLength="10" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Order_details">
+    <Key>
+      <PropertyRef Name="Order_id" />
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="stt" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_id" Type="bigint" Nullable="false" />
+    <Property Name="Product_id" Type="bigint" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="price_ship" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="stt" Type="bigint" Nullable="false" />
+    <Property Name="Product_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Original_Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Product_CategoryId" Type="bigint" />
+    <Property Name="ApplyDate" Type="datetime" />
+    <Property Name="Brand_id" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Product_Infor" Type="nvarchar" MaxLength="500" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Product_Category">
+    <Key>
+      <PropertyRef Name="Product_CategoryId" />
+    </Key>
+    <Property Name="stt" Type="bigint" Nullable="false" />
+    <Property Name="Product_CategoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Product_Color">
+    <Key>
+      <PropertyRef Name="Color_Id" />
+    </Key>
+    <Property Name="stt" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Color_Id" Type="bigint" Nullable="false" />
+    <Property Name="Color_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Id" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Product_image">
+    <Key>
+      <PropertyRef Name="Image_Id" />
+    </Key>
+    <Property Name="stt" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image_Id" Type="bigint" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image_Type" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Product_Id" Type="bigint" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="Banner_id" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Product_Specifications">
+    <Key>
+      <PropertyRef Name="Specification_Id" />
+    </Key>
+    <Property Name="stt" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Specification_Id" Type="bigint" Nullable="false" />
+    <Property Name="Screen" Type="nvarchar" MaxLength="250" />
+    <Property Name="Camera_rear" Type="nvarchar" MaxLength="250" />
+    <Property Name="Camera_Selfie" Type="nvarchar" MaxLength="250" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="250" />
+    <Property Name="Internal_memory" Type="nvarchar" MaxLength="250" />
+    <Property Name="CPU" Type="nvarchar" MaxLength="250" />
+    <Property Name="GPU" Type="nvarchar" MaxLength="250" />
+    <Property Name="Battery_capacity" Type="nvarchar" MaxLength="250" />
+    <Property Name="SIM" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operating_System" Type="nvarchar" MaxLength="250" />
+    <Property Name="Made_In" Type="nvarchar" MaxLength="250" />
+    <Property Name="Launch_Time" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_Id" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="db_smartphoneModelStoreContainer">
+    <EntitySet Name="AccountAdmin" EntityType="Self.AccountAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banner_Category" EntityType="Self.Banner_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_details" EntityType="Self.Order_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Category" EntityType="Self.Product_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Color" EntityType="Self.Product_Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_image" EntityType="Self.Product_image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Specifications" EntityType="Self.Product_Specifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

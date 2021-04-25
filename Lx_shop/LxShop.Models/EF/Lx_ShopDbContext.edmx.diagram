@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a5dde6a9c3374f88b6a8e858804bd8d2" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="db_smartphoneModel.AccountAdmin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Banner" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Brand" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Customer" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.District" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Order" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Order_details" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Order_Status" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product_Category" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product_Category_Type" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product_Color" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product_image" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Product_Specifications" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Province" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.Setting" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_smartphoneModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

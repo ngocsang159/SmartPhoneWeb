@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Begin Slider With Category Menu Area -->
+<div class="slider-with-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Category Menu Area -->
+            <div class="col-lg-3">
+                <!--Category Menu Start-->
+                <div class="category-menu category-menu-2">
+                    <div class="category-heading">
+                        <h2 class="categories-toggle"><span>Danh Mục Sản Phẩm</span></h2>
+                    </div>
+                    <div id="cate-toggle" class="category-menu-list">
+
+                        @{Html.RenderAction("_ProductCategory", "Home");}
+
+                    </div>
+                </div>
+                <!--Category Menu End-->
+            </div>
+            <!-- Category Menu Area End Here -->
+            <!-- Begin Slider Area -->
+            @{ Html.RenderAction("_SlideBanner", "Home");}
+            <!-- Slider Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- Slider With Category Menu Area End Here -->
+<!-- Begin Li's Static Banner Area -->
+@{ Html.RenderAction("_BannerAdvertisement", "Home");}
+<!-- Li's Static Banner Area End Here -->
+<!-- Begin Li's Special Product Area -->
+@{ Html.RenderAction("_ListSpecialProduct", "Home");}
+<!-- Li's Special Product Area End Here -->
+<!-- Begin Featured Product With Banner Area -->
+<!-- Begin Li's Iphone Product | Home V2 Area -->
+@{ Html.RenderAction("_ListIphoneProduct", "Home");}
+<!-- Li's Laptops Product | Home V2 Area End Here -->
+<!-- Begin Li's Samsung Product Area -->
+@{ Html.RenderAction("_ListSamsungProduct","Home");}
+<!-- Li's Laptop Product Area End Here -->
+<!-- Begin Li's TV & Audio Product Area -->
+@{ Html.RenderAction("_ListSmartphone", "Home");}
+<!-- Li's TV & Audio Product Area End Here -->
+<!-- Begin Li's Static Home Area -->
+@{ Html.RenderAction("_BannerAccessories","Home");}
+<!-- Li's Static Home Area End Here -->
+<!-- Begin Li's Trending Product Area -->
+@{ Html.RenderAction("_ListAccessories", "Home");}
+<!-- Li's Trending Product Area End Here -->
